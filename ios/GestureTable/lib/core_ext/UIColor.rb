@@ -1,5 +1,5 @@
 class UIColor
-  def colorWithBrightness(brightnessComponent)
+  def with_brightness(brightnessComponent)
     hue = Pointer.new(:float)
     saturation = Pointer.new(:float)
     brightness = Pointer.new(:float)
@@ -10,15 +10,22 @@ class UIColor
     alpha = Pointer.new(:float)
 
     if getHue(hue, saturation: saturation, brightness: brightness, alpha: alpha)
-      UIColor.colorWithHue(hue[0], saturation: saturation[0], brightness: brightness[0] * brightnessComponent, alpha: alpha[0])
+      UIColor.colorWithHue(hue[0],
+                           saturation: saturation[0],
+                           brightness: brightness[0] * brightnessComponent,
+                           alpha: alpha[0])
     elsif getRed(red, green: green, blue: blue, alpha: alpha)
-      UIColor.colorWithRed(red[0] * brightnessComponent, green: green[0] * brightnessComponent, blue: blue[0] * brightnessComponent, alpha: alpha[0])
+      UIColor.colorWithRed(red[0] * brightnessComponent,
+                           green: green[0] * brightnessComponent,
+                           blue: blue[0] * brightnessComponent,
+                           alpha: alpha[0])
     elsif getWhite(white, alpha: alpha)
-      UIColor.colorWithWhite(white[0] * brightnessComponent, alpha: alpha[0])
+      UIColor.colorWithWhite(white[0] * brightnessComponent,
+                             alpha: alpha[0])
     end
   end
 
-  def colorWithHueOffset(hueOffset)
+  def with_hue_offset(hueOffset)
     hue = Pointer.new(:float)
     saturation = Pointer.new(:float)
     brightness = Pointer.new(:float)
@@ -26,7 +33,10 @@ class UIColor
 
     if getHue(hue, saturation: saturation, brightness: brightness, alpha: alpha)
       newHue = (hue[0] + hueOffset) % 1
-      UIColor.colorWithHue(newHue, saturation: saturation[0], brightness: brightness[0], alpha: alpha[0])
+      UIColor.colorWithHue(newHue,
+                           saturation: saturation[0],
+                           brightness: brightness[0],
+                           alpha: alpha[0])
     end
   end
 end

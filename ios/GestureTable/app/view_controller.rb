@@ -168,6 +168,6 @@ class ViewController < UITableViewController
   end
 
   def backgroundColorForIndexPath(indexPath)
-    UIColor.redColor.colorWithHueOffset(0.12 * indexPath.row / @rows.count)
+    UIColor.redColor.with_hue_offset(0.12 * indexPath.row / @rows.count)
   end
 end

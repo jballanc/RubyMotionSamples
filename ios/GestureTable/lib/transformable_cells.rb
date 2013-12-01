@@ -43,8 +43,8 @@ class UnfoldingTableViewCell < TransformableTableViewCell
     textLabel.layer.setTransform(transform)
     detailTextLabel.layer.setTransform(CATransform3DMakeRotation(angle, 1, 0, 0))
 
-    textLabel.backgroundColor = @tintColor.colorWithBrightness(0.3 + 0.7*fraction)
-    detailTextLabel.backgroundColor = @tintColor.colorWithBrightness(0.5 + 0.5*fraction)
+    textLabel.backgroundColor = @tintColor.with_brightness(0.3 + 0.7*fraction)
+    detailTextLabel.backgroundColor = @tintColor.with_brightness(0.5 + 0.5*fraction)
 
     contentViewSize = contentView.frame.size
     contentViewMidY = contentViewSize.height / 2.0
@@ -82,7 +82,7 @@ class PullDownTableViewCell < TransformableTableViewCell
     transform = CATransform3DMakeRotation(angle, 1, 0, 0)
     textLabel.layer.setTransform(transform)
 
-    textLabel.backgroundColor = @tintColor.colorWithBrightness(0.3 + 0.7*fraction)
+    textLabel.backgroundColor = @tintColor.with_brightness(0.3 + 0.7*fraction)
 
     contentViewSize = self.contentView.frame.size
     labelHeight = @finishedHeight
