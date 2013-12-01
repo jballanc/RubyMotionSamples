@@ -44,14 +44,13 @@ class ViewController < UITableViewController
         cellIdentifier = 'PullDownTableViewCell'
         cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         unless cell
-          cell = PullDownTableViewCell.new(cellIdentifier)
+          cell = PullDownTableViewCell.new(cellIdentifier, CommittingCreateCellHeight)
           cell.textLabel.adjustsFontSizeToFitWidth = true
           cell.textLabel.textColor = UIColor.whiteColor
           cell.textLabel.textAlignment = UITextAlignmentCenter
         end
 
         cell.tintColor = backgroundColor
-        cell.finishedHeight = CommittingCreateCellHeight
         cell.textLabel.text = cell.frame.size.height > CommittingCreateCellHeight ? 'Release to create cell...' : 'Continue Pulling...'
         cell.contentView.backgroundColor = UIColor.clearColor
       else
