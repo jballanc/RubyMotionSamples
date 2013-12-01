@@ -57,14 +57,13 @@ class ViewController < UITableViewController
         cellIdentifier = 'UnfoldingTableViewCell'
         cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         unless cell
-          cell = UnfoldingTableViewCell.new(cellIdentifier)
+          cell = UnfoldingTableViewCell.new(cellIdentifier, CommittingCreateCellHeight)
           cell.textLabel.adjustsFontSizeToFitWidth = true
           cell.textLabel.textColor = UIColor.whiteColor
           cell.textLabel.textAlignment = UITextAlignmentCenter
         end
 
         cell.tintColor = backgroundColor
-        cell.finishedHeight = CommittingCreateCellHeight
         cell.textLabel.text = cell.frame.size.height > CommittingCreateCellHeight ? 'Release to create cell...' : 'Continue Pinching...'
         cell.contentView.backgroundColor = UIColor.clearColor
         cell.detailTextLabel.text = ' '
