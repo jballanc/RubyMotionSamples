@@ -44,7 +44,7 @@ class ViewController < UITableViewController
         cellIdentifier = 'PullDownTableViewCell'
         cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         unless cell
-          cell = TransformableTableViewCell.transformableTableViewCellWithStyle(:pullDown, reuseIdentifier: cellIdentifier)
+          cell = PullDownTableViewCell.new(cellIdentifier)
           cell.textLabel.adjustsFontSizeToFitWidth = true
           cell.textLabel.textColor = UIColor.whiteColor
           cell.textLabel.textAlignment = UITextAlignmentCenter
@@ -58,7 +58,7 @@ class ViewController < UITableViewController
         cellIdentifier = 'UnfoldingTableViewCell'
         cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         unless cell
-          cell = TransformableTableViewCell.transformableTableViewCellWithStyle(:unfolding, reuseIdentifier: cellIdentifier)
+          cell = UnfoldingTableViewCell.new(cellIdentifier)
           cell.textLabel.adjustsFontSizeToFitWidth = true
           cell.textLabel.textColor = UIColor.whiteColor
           cell.textLabel.textAlignment = UITextAlignmentCenter
